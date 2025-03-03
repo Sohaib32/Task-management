@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { v4 as uuidv4 } from 'uuid';
 import { CreateTaskDto } from './dto/create-task.dto';
 
@@ -6,12 +6,9 @@ import { CreateTaskDto } from './dto/create-task.dto';
 export class TasksService {
   private tasks: any[] = [];
 
-  addTasks(createTaskDto:CreateTaskDto) {
-    const{name,description}=createTaskDto
-    if (!name && description) {
-      return 'Please enter name of task and it`s description';
-    }
-    const task = { id: uuidv4(), name , description};
+  addTasks(createTaskDto: CreateTaskDto) {
+    const { name, description } = createTaskDto;
+    const task = { id: uuidv4(), name, description };
     this.tasks.push(task);
     return task;
   }
@@ -26,5 +23,15 @@ export class TasksService {
   delTaskById(id: any) {
     this.tasks = this.tasks.filter((task) => task.id !== id);
     return this.tasks;
+  }
+
+  upDateTask(id: any, createTaskDto: CreateTaskDto) {
+    const newTask = this.getTaskById(id);
+    if (!newTask) {
+      throw new NotFoundException(`Task with ${id} not found`);
+    }
+    newTask.name = createTaskDto.name;
+    newTask.description = createTaskDto.description;
+    return newTask;
   }
 }
