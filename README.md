@@ -38,9 +38,6 @@ Additional Information
 Framework: Built with NestJS.
 Data Storage: Uses an in-memory array (data resets on server restart).
 Task IDs: Generated using the uuid package.
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 ## Project setup
 
