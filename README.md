@@ -22,6 +22,22 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+# Task Manager API
+
+A simple NestJS project demonstrating basic CRUD operations for task management, using in-memory storage and UUID for task IDs.
+
+## API Endpoints
+
+- **POST /tasks**: Create a new task.
+- **GET /tasks/all**: Retrieve all tasks.
+- **GET /tasks/:id**: Retrieve a task by its ID.
+- **PUT /tasks/:id**: Update an existing task.
+- **DELETE /tasks/:id**: Delete a task.
+  
+Additional Information
+Framework: Built with NestJS.
+Data Storage: Uses an in-memory array (data resets on server restart).
+Task IDs: Generated using the uuid package.
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
